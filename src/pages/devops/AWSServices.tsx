@@ -1,10 +1,13 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import heroImage from "@/assets/hero-devops.jpg";
+import { Server, Shield, Zap, DollarSign, Users, Clock } from "lucide-react";
 
 export default function AWSServices() {
   return (
     <ServicePageTemplate
       badge="AWS Services"
       color="#FF9900"
+      heroImage={heroImage}
       title="Amazon Web Services (AWS) Solutions"
       subtitle="Comprehensive AWS cloud solutions including EC2, S3, Lambda, cloud migration, and infrastructure automation."
       description="We design, deploy, and manage robust AWS cloud infrastructure for businesses of all sizes. Our AWS-certified team helps you leverage the full power of Amazon Web Services to build scalable, reliable, and cost-effective applications."
@@ -17,6 +20,15 @@ export default function AWSServices() {
         "Comprehensive security with IAM",
         "Infrastructure as Code with Terraform",
         "CI/CD pipeline automation",
+      ]}
+      whyUsTitle="Why Choose Ishna Webtech for AWS Services?"
+      whyUsReasons={[
+        { icon: Server, title: "AWS-Certified Team", desc: "Our engineers hold AWS certifications (SAA, DVA, SOA). Your infrastructure is in the hands of verified cloud experts." },
+        { icon: Shield, title: "Security by Default", desc: "We configure IAM roles, VPC security groups, encryption at rest/transit, and CloudTrail audit logging from the start." },
+        { icon: Zap, title: "Infrastructure as Code", desc: "We use Terraform and AWS CDK for all setups — meaning your infrastructure is version-controlled, repeatable, and disaster-proof." },
+        { icon: DollarSign, title: "AWS Cost Savings", desc: "We analyze your workloads and implement Savings Plans, Spot Instances, and Reserved Instances to reduce your AWS bill significantly." },
+        { icon: Users, title: "24/7 CloudWatch Monitoring", desc: "Real-time alerting via CloudWatch and SNS means we know about issues before they affect your users." },
+        { icon: Clock, title: "Rapid Deployment", desc: "With our pre-built Terraform modules, standard AWS environments are production-ready in days, not weeks." },
       ]}
       process={[
         { step: "AWS Assessment", desc: "Evaluate requirements and design optimal AWS architecture." },
