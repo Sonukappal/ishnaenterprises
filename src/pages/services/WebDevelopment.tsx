@@ -1,10 +1,13 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import heroImage from "@/assets/hero-web-dev.jpg";
+import { Code2, Rocket, Shield, Clock, Users, Award } from "lucide-react";
 
 export default function WebDevelopment() {
   return (
     <ServicePageTemplate
       badge="Web Development"
       color="hsl(221 83% 53%)"
+      heroImage={heroImage}
       title="Professional Web Development Services"
       subtitle="High-performance, SEO-friendly websites and web applications built with modern technologies for maximum business impact."
       description="We craft custom websites and web applications that are fast, secure, and scalable. From simple landing pages to complex enterprise platforms, our development team delivers solutions that drive results. Every project is built with clean code, optimal performance, and SEO best practices."
@@ -17,6 +20,15 @@ export default function WebDevelopment() {
         "Secure HTTPS with SSL certificates",
         "Scalable architecture for future growth",
         "Post-launch support and maintenance",
+      ]}
+      whyUsTitle="Why Choose Ishna Webtech for Web Development?"
+      whyUsReasons={[
+        { icon: Code2, title: "Modern Tech Stack", desc: "We use React, Next.js, and the latest frameworks to build blazing-fast, future-proof websites that give you a competitive edge." },
+        { icon: Shield, title: "Security-First Build", desc: "Every website we build includes SSL, HTTPS, security headers, and protection against common vulnerabilities from day one." },
+        { icon: Rocket, title: "Blazing Fast Performance", desc: "We optimize every byte — from image compression to lazy loading — so your site scores 90+ on Google PageSpeed." },
+        { icon: Users, title: "Experienced Developers", desc: "Our team has delivered 200+ web projects across industries. We've seen every challenge and know exactly how to solve them." },
+        { icon: Clock, title: "On-Time Delivery", desc: "We follow agile sprints and provide weekly progress updates, ensuring you always know where your project stands." },
+        { icon: Award, title: "100% Ownership", desc: "You own the code, design files, and all intellectual property. No strings attached, no vendor lock-in." },
       ]}
       process={[
         { step: "Requirements Gathering", desc: "We analyze your business needs and define project scope." },

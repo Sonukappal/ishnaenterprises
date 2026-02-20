@@ -1,10 +1,13 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import heroImage from "@/assets/hero-web-dev.jpg";
+import { Code2, Shield, Rocket, Users, Clock, Award } from "lucide-react";
 
 export default function CustomWebApps() {
   return (
     <ServicePageTemplate
       badge="Custom Web Applications"
       color="hsl(221 83% 53%)"
+      heroImage={heroImage}
       title="Custom Web Application Development"
       subtitle="Tailored web applications designed to automate, scale, and transform your business processes."
       description="We build bespoke web applications that address your specific business challenges. From SaaS platforms to enterprise portals, our custom development approach ensures you get exactly what your business needs with room to scale."
@@ -17,6 +20,15 @@ export default function CustomWebApps() {
         "Role-based access control",
         "Advanced reporting and analytics",
         "Cloud deployment and DevOps",
+      ]}
+      whyUsTitle="Why Build Your Custom App with Ishna Webtech?"
+      whyUsReasons={[
+        { icon: Code2, title: "Architecture Experts", desc: "We design scalable, maintainable architectures from day one — not quick fixes that create technical debt as you grow." },
+        { icon: Shield, title: "Security by Design", desc: "Authentication, authorization, input validation, encryption — security is built into every layer, not bolted on at the end." },
+        { icon: Rocket, title: "Agile Development", desc: "We deliver working software every 2 weeks. You get regular demos and can provide feedback throughout the process." },
+        { icon: Users, title: "Dedicated Project Manager", desc: "A single point of contact who knows your project inside-out and keeps you updated without needing to follow up." },
+        { icon: Clock, title: "You Own Everything", desc: "Full source code, documentation, and IP ownership is transferred to you. No vendor lock-in, ever." },
+        { icon: Award, title: "Post-Launch Partnership", desc: "Our relationship doesn't end at launch. We offer flexible support and enhancement plans to evolve your application." },
       ]}
       process={[
         { step: "Discovery & Scoping", desc: "Deep-dive into requirements and technical architecture planning." },

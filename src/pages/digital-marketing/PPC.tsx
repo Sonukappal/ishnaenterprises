@@ -1,10 +1,13 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import heroImage from "@/assets/hero-digital-marketing.jpg";
+import { MousePointerClick, TrendingUp, Shield, Zap, Users, Award } from "lucide-react";
 
 export default function PPC() {
   return (
     <ServicePageTemplate
       badge="PPC Campaigns"
       color="hsl(25 95% 53%)"
+      heroImage={heroImage}
       title="PPC & Paid Advertising Services"
       subtitle="Targeted pay-per-click campaigns that maximize ROI, drive qualified leads, and accelerate business growth."
       description="Our certified PPC specialists create and manage high-performing paid advertising campaigns on Google, Meta, and more. We optimize every rupee of your ad spend to deliver the lowest cost per acquisition and highest return on investment."
@@ -17,6 +20,15 @@ export default function PPC() {
         "Detailed conversion tracking",
         "Remarketing campaigns",
         "Transparent weekly reporting",
+      ]}
+      whyUsTitle="Why Choose Ishna Webtech to Run Your PPC Campaigns?"
+      whyUsReasons={[
+        { icon: MousePointerClick, title: "Certified PPC Experts", desc: "Our Google Ads and Meta Ads certified specialists have managed crores of rupees in ad spend across multiple industries." },
+        { icon: TrendingUp, title: "Lower Cost Per Lead", desc: "Through rigorous A/B testing and bid optimization, we consistently deliver 30-50% lower cost per lead than industry averages." },
+        { icon: Shield, title: "No Wasted Budget", desc: "We use negative keywords, audience exclusions, and ad scheduling to ensure not a single rupee of your budget is wasted." },
+        { icon: Zap, title: "Instant Results", desc: "Unlike SEO, PPC delivers qualified traffic to your website within 24 hours of campaign launch." },
+        { icon: Users, title: "Remarketing Mastery", desc: "We bring back visitors who didn't convert with strategic remarketing campaigns across Google Display and Meta platforms." },
+        { icon: Award, title: "Full Transparency", desc: "You get full access to your ad accounts and weekly performance reports — no black boxes, ever." },
       ]}
       process={[
         { step: "Campaign Strategy", desc: "Define goals, budget, audience, and keyword targets." },

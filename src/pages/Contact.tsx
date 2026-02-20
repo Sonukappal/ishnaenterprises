@@ -1,7 +1,17 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Users, Shield, Zap, Award, ThumbsUp, Star } from "lucide-react";
+import heroContact from "@/assets/hero-contact.jpg";
+
+const whyContactUs = [
+  { icon: Zap, title: "Response Within 2 Hours", desc: "Send us a message and our team will respond with a personalized proposal within 2 business hours — not days." },
+  { icon: Shield, title: "No Obligation Free Consultation", desc: "Our initial consultation is completely free with zero commitment. Explore your options before deciding anything." },
+  { icon: Users, title: "Speak to Real Experts", desc: "You speak directly with our technical and marketing experts — not sales reps who don't understand your problem." },
+  { icon: ThumbsUp, title: "Honest Assessment", desc: "We'll tell you exactly what you need — and what you don't. We won't upsell services that won't benefit your business." },
+  { icon: Award, title: "Clear Proposals", desc: "You get a detailed, itemized proposal with timeline, deliverables, and pricing — no vague estimates." },
+  { icon: Star, title: "Serving Delhi & HP", desc: "We're local. We understand your market, your customers, and the regional business dynamics that affect your success." },
+];
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -9,7 +19,6 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app this would send to backend
     setSubmitted(true);
   };
 
@@ -17,19 +26,26 @@ export default function Contact() {
     <>
       <Navbar />
       <main>
-        {/* Hero */}
-        <section className="py-16 px-4 relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
-          <div className="floating-shape w-72 h-72 bg-primary/15 -top-20 -right-20" />
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <div className="section-badge mb-5">Contact Us</div>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-              Let's Start a <span className="gradient-text-primary">Conversation</span>
+        {/* Hero with image */}
+        <section className="relative overflow-hidden min-h-[400px] flex items-center">
+          <div className="absolute inset-0">
+            <img src={heroContact} alt="Contact Ishna Webtech Solutions" className="w-full h-full object-cover" />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(37,99,235,0.88) 0%, rgba(25,95,53,0.1) 60%, rgba(249,115,22,0.7) 100%)" }} />
+          </div>
+          <div className="max-w-4xl mx-auto px-4 py-20 text-center relative z-10 w-full">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-5 backdrop-blur-sm" style={{ background: "rgba(255,255,255,0.2)", color: "white", border: "1px solid rgba(255,255,255,0.4)" }}>
+              Contact Us
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-white">
+              Let's Start a <span style={{ color: "#93c5fd" }}>Conversation</span>
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-white/85">
               Ready to transform your digital presence? Reach out for a free consultation.
             </p>
           </div>
         </section>
+
+
 
         <section className="section-padding bg-white">
           <div className="max-w-7xl mx-auto">
@@ -187,6 +203,37 @@ export default function Contact() {
           </div>
         </section>
 
+        {/* Why Choose Ishna Webtech */}
+        <section className="section-padding" style={{ background: "hsl(210 40% 98%)" }}>
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="section-badge mb-4">Why Reach Out to Us?</div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                Why Opt for <span className="gradient-text-primary">Ishna Webtech</span> Solutions?
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Getting in touch is the first step toward transforming your business. Here's what makes working with us different.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {whyContactUs.map((item, i) => (
+                <div key={item.title} className="bg-white rounded-2xl p-6 border border-border hover:shadow-card hover:-translate-y-1 transition-all duration-300 group">
+                  <div className="flex items-start gap-4">
+                    <div className="w-11 h-11 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <item.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-primary/60 mb-1">0{i + 1}</div>
+                      <h3 className="font-bold mb-1.5">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Google Map placeholder */}
         <section className="px-4 pb-20">
           <div className="max-w-7xl mx-auto">
@@ -204,3 +251,4 @@ export default function Contact() {
     </>
   );
 }
+

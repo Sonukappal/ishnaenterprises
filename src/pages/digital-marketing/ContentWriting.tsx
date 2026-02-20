@@ -1,10 +1,13 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import heroImage from "@/assets/hero-digital-marketing.jpg";
+import { PenTool, TrendingUp, Search, Users, Star, Award } from "lucide-react";
 
 export default function ContentWriting() {
   return (
     <ServicePageTemplate
       badge="Content Writing"
       color="hsl(174 72% 40%)"
+      heroImage={heroImage}
       title="Professional Content Writing Services"
       subtitle="Compelling, SEO-optimized content that establishes authority, drives traffic, and converts readers into customers."
       description="Our team of experienced content writers creates high-quality, engaging content that speaks to your target audience and performs in search engines. From blog posts to product descriptions, we craft every word with purpose."
@@ -17,6 +20,15 @@ export default function ContentWriting() {
         "Email newsletters and campaigns",
         "Social media captions and scripts",
         "100% original, plagiarism-free content",
+      ]}
+      whyUsTitle="Why Choose Ishna Webtech for Content Writing?"
+      whyUsReasons={[
+        { icon: PenTool, title: "SEO-First Writing", desc: "Every piece is optimized with the right keywords, heading structure, and readability scores before it even reaches you for review." },
+        { icon: TrendingUp, title: "Content That Converts", desc: "We don't just write to fill pages — every article, page, and post is crafted to drive a specific business outcome." },
+        { icon: Search, title: "Keyword Research Included", desc: "Every piece of content is preceded by thorough keyword research to ensure we're targeting terms your customers actually search for." },
+        { icon: Users, title: "Industry Specialists", desc: "Our writers specialize in tech, healthcare, e-commerce, hospitality, and more — your content will always sound authentic." },
+        { icon: Star, title: "Hindi & English Content", desc: "We serve the full Indian market with bilingual content capabilities — perfect for reaching audiences across all regions." },
+        { icon: Award, title: "Zero Plagiarism Guarantee", desc: "Every piece passes Copyscape and Turnitin checks. You always get 100% original, unique content." },
       ]}
       process={[
         { step: "Topic Research", desc: "Research your industry, audience, and keyword opportunities." },

@@ -1,10 +1,13 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import heroImage from "@/assets/hero-ecommerce.jpg";
+import { ShoppingCart, Shield, Zap, TrendingUp, Users, Star } from "lucide-react";
 
 export default function Ecommerce() {
   return (
     <ServicePageTemplate
       badge="eCommerce Solutions"
       color="hsl(25 95% 53%)"
+      heroImage={heroImage}
       title="eCommerce Solutions That Sell"
       subtitle="Feature-rich online stores with seamless checkout, payment integration, and powerful inventory management."
       description="We build powerful eCommerce platforms that drive sales and deliver exceptional shopping experiences. From WooCommerce to custom solutions, we create online stores that are fast, secure, and optimized for conversions."
@@ -17,6 +20,15 @@ export default function Ecommerce() {
         "SEO-optimized product pages",
         "Customer account management",
         "Analytics and sales reporting",
+      ]}
+      whyUsTitle="Why Choose Ishna Webtech for Your Online Store?"
+      whyUsReasons={[
+        { icon: ShoppingCart, title: "India-Ready Payment Setup", desc: "We integrate Razorpay, PayPal, CCAvenue and UPI natively — all Indian payment methods your customers already trust." },
+        { icon: Shield, title: "PCI-DSS Secure", desc: "Your customers' financial data is always protected. We follow PCI-DSS compliance standards for all eCommerce stores." },
+        { icon: Zap, title: "Optimized for Speed", desc: "A 1-second delay costs 7% in conversions. We build stores that load in under 2 seconds for maximum revenue." },
+        { icon: TrendingUp, title: "Built to Scale", desc: "Whether you have 100 or 1,00,000 products, our architecture scales effortlessly without performance degradation." },
+        { icon: Users, title: "Admin Panel Training", desc: "After launch, we train your team to manage products, orders, and customers with ease — no technical knowledge needed." },
+        { icon: Star, title: "Post-Launch Support", desc: "We don't disappear after launch. Our team monitors your store and provides ongoing support to ensure smooth operations." },
       ]}
       process={[
         { step: "Store Planning", desc: "Define product catalog, payment flow, and feature requirements." },

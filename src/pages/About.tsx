@@ -1,7 +1,17 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/home/CTASection";
-import { Target, Eye, Users, CheckCircle, Lightbulb, Code, Rocket, Headphones, Award } from "lucide-react";
+import { Target, Eye, Users, CheckCircle, Lightbulb, Code, Rocket, Headphones, Award, Star, ThumbsUp, Shield, Zap, Clock } from "lucide-react";
+import heroAbout from "@/assets/hero-about.jpg";
+
+const whyUs = [
+  { icon: Users, title: "Dedicated Expert Teams", desc: "You don't work with outsourced freelancers. Every project is handled by our in-house specialists who are genuinely invested in your success." },
+  { icon: Shield, title: "Transparent & Honest", desc: "No hidden fees, no false promises. We give honest timelines, realistic expectations, and clear pricing from the very first call." },
+  { icon: ThumbsUp, title: "End-to-End Services", desc: "From strategy and design to development, cloud, and marketing — we're your one-stop digital partner. No more juggling multiple vendors." },
+  { icon: Star, title: "India-Focused Expertise", desc: "We deeply understand the Indian business landscape, local SEO, regional audiences, and market dynamics — giving your business a real edge." },
+  { icon: Zap, title: "Innovation-First Approach", desc: "We continuously adopt the latest technologies and frameworks so your business always benefits from cutting-edge solutions." },
+  { icon: Clock, title: "Long-Term Partnership", desc: "95% of our clients return for more projects. We build long-term relationships, not just deliverables — your growth is our ongoing mission." },
+];
 
 const processSteps = [
   { icon: Lightbulb, num: "01", title: "Discovery", desc: "We dive deep into your business goals, target audience, and requirements." },
@@ -11,30 +21,27 @@ const processSteps = [
   { icon: Headphones, num: "05", title: "Support", desc: "Ongoing maintenance, updates, and 24/7 support to keep you running." },
 ];
 
-const team = [
-  { name: "Founders", role: "Management", initial: "F" },
-  { name: "Dev Team", role: "Web Development", initial: "D" },
-  { name: "Design Team", role: "UI/UX Design", initial: "D" },
-  { name: "Marketing Team", role: "Digital Marketing", initial: "M" },
-];
-
 export default function About() {
   return (
     <>
       <Navbar />
       <main>
-        {/* Hero */}
-        <section className="py-20 px-4 relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
-          <div className="floating-shape w-80 h-80 bg-primary/20 -top-20 -right-20" />
-          <div className="floating-shape w-60 h-60 bg-secondary/15 bottom-0 -left-10" />
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <div className="section-badge mb-6">About Us</div>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+        {/* Hero with image */}
+        <section className="relative overflow-hidden min-h-[480px] flex items-center">
+          <div className="absolute inset-0">
+            <img src={heroAbout} alt="About Ishna Webtech Solutions team" className="w-full h-full object-cover" />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(37,99,235,0.88) 0%, rgba(124,58,237,0.78) 60%, rgba(0,0,0,0.5) 100%)" }} />
+          </div>
+          <div className="max-w-4xl mx-auto px-4 py-20 text-center relative z-10 w-full">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm" style={{ background: "rgba(255,255,255,0.2)", color: "white", border: "1px solid rgba(255,255,255,0.4)" }}>
+              About Us
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
               Transforming Ideas into{" "}
-              <span className="gradient-text-primary">Digital Excellence</span>
+              <span style={{ color: "#93c5fd" }}>Digital Excellence</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Ishna Webtech Solutions is a full-service digital agency based in Delhi & Himachal Pradesh, India. 
+            <p className="text-lg text-white/85 max-w-3xl mx-auto leading-relaxed">
+              Ishna Webtech Solutions is a full-service digital agency based in Delhi & Himachal Pradesh, India.
               We specialize in web development, digital marketing, and cloud solutions that drive real business growth.
             </p>
           </div>
@@ -50,7 +57,7 @@ export default function About() {
                 </div>
                 <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  To empower businesses across India with innovative digital solutions that drive growth, enhance visibility, 
+                  To empower businesses across India with innovative digital solutions that drive growth, enhance visibility,
                   and create lasting competitive advantages. We are committed to delivering exceptional quality with a client-first approach.
                 </p>
               </div>
@@ -60,7 +67,7 @@ export default function About() {
                 </div>
                 <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  To become India's most trusted digital transformation partner by helping businesses of all sizes leverage 
+                  To become India's most trusted digital transformation partner by helping businesses of all sizes leverage
                   technology for sustainable growth and success in the global digital landscape.
                 </p>
               </div>
@@ -78,11 +85,11 @@ export default function About() {
                   Your Trusted <span className="gradient-text-primary">Digital Partner</span>
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-5">
-                  Founded with a passion for digital innovation, Ishna Webtech Solutions brings together a team of 
+                  Founded with a passion for digital innovation, Ishna Webtech Solutions brings together a team of
                   experienced developers, designers, marketers, and cloud specialists dedicated to your success.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-7">
-                  From our offices in Delhi and Himachal Pradesh, we serve clients across India and beyond, 
+                  From our offices in Delhi and Himachal Pradesh, we serve clients across India and beyond,
                   delivering end-to-end digital solutions that are professional, scalable, and results-driven.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
@@ -116,8 +123,53 @@ export default function About() {
           </div>
         </section>
 
-        {/* Process */}
+        {/* Why Choose Us - detailed */}
         <section className="section-padding bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="section-badge mb-4">Why Choose Us</div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                Why Opt for Ishna Webtech <span className="gradient-text-primary">Solutions?</span>
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                With dozens of digital agencies out there, here's why 150+ businesses chose us — and keep coming back.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+              {whyUs.map((item, i) => (
+                <div key={item.title} className="bg-background rounded-2xl p-6 border border-border hover:shadow-card hover:-translate-y-1 transition-all duration-300 group">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <item.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-primary/60 mb-1">0{i + 1}</div>
+                      <h3 className="font-bold mb-2">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Stats strip */}
+            <div className="gradient-primary rounded-2xl p-8 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+              {[
+                { num: "200+", label: "Projects Delivered" },
+                { num: "150+", label: "Happy Clients" },
+                { num: "5+", label: "Years Experience" },
+                { num: "98%", label: "Satisfaction Rate" },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="text-3xl font-bold text-white">{s.num}</div>
+                  <div className="text-white/70 text-sm">{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Process */}
+        <section className="section-padding bg-background">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-14">
               <div className="section-badge mb-4">Our Process</div>
@@ -146,22 +198,22 @@ export default function About() {
         </section>
 
         {/* Why Different */}
-        <section className="section-padding bg-background">
+        <section className="section-padding bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <div className="section-badge mb-4">Why We're Different</div>
-              <h2 className="text-3xl font-bold">What Sets Us <span className="gradient-text-primary">Apart</span></h2>
+              <div className="section-badge mb-4">What Sets Us Apart</div>
+              <h2 className="text-3xl font-bold">Our Core <span className="gradient-text-primary">Strengths</span></h2>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: Award, title: "Quality First", desc: "We never compromise on quality. Every line of code, every design element is crafted with care." },
-                { icon: Users, title: "Dedicated Teams", desc: "You get a dedicated project manager and team who understand your business deeply." },
-                { icon: Lightbulb, title: "Innovation-Driven", desc: "We stay ahead of technology trends to bring you cutting-edge solutions." },
-                { icon: CheckCircle, title: "Proven Track Record", desc: "200+ successfully delivered projects across diverse industries." },
-                { icon: Target, title: "Results-Oriented", desc: "Every strategy is backed by data and aimed at delivering measurable outcomes." },
-                { icon: Headphones, title: "Always Available", desc: "Our support team is available 24/7 to address your needs." },
+                { icon: Award, title: "Quality First", desc: "We never compromise on quality. Every line of code, every design element is crafted with care and reviewed rigorously." },
+                { icon: Users, title: "Dedicated Teams", desc: "You get a dedicated project manager and team who understand your business deeply and communicate proactively." },
+                { icon: Lightbulb, title: "Innovation-Driven", desc: "We stay ahead of technology trends to bring you cutting-edge solutions that work today and tomorrow." },
+                { icon: CheckCircle, title: "Proven Track Record", desc: "200+ successfully delivered projects across diverse industries, from startups to enterprises." },
+                { icon: Target, title: "Results-Oriented", desc: "Every strategy is backed by data and aimed at delivering measurable outcomes, not just activity." },
+                { icon: Headphones, title: "Always Available", desc: "Our support team is available 24/7 to address your needs, resolve issues, and answer questions." },
               ].map((item) => (
-                <div key={item.title} className="bg-white rounded-2xl p-6 border border-border hover:shadow-card hover:-translate-y-1 transition-all duration-300 group">
+                <div key={item.title} className="bg-background rounded-2xl p-6 border border-border hover:shadow-card hover:-translate-y-1 transition-all duration-300 group">
                   <div className="w-11 h-11 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <item.icon className="w-5 h-5 text-white" />
                   </div>
