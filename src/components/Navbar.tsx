@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Code2, Palette, AppWindow, Database, ShoppingCart, BarChart3, Search, Share2, MousePointerClick, PenTool, Cloud, Server } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const serviceItems = [
   { icon: Code2, label: "Web Development", href: "/services/web-development", desc: "Custom websites & web apps" },
@@ -87,9 +88,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-18 py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
-              <span className="text-white font-bold text-lg">I</span>
-            </div>
+            <img src={logo} alt="Ishna Webtech Solutions" className="h-12 w-auto group-hover:scale-110 transition-transform" />
             <div>
               <div className="font-bold text-lg leading-tight gradient-text-primary">Ishna Webtech</div>
               <div className="text-xs text-muted-foreground leading-tight">Solutions</div>

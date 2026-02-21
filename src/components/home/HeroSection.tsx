@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
+import heroHome from "@/assets/hero-home.jpg";
 
 export default function HeroSection() {
   return (
@@ -69,38 +70,12 @@ export default function HeroSection() {
 
           {/* Right visual */}
           <div className="hidden lg:flex items-center justify-center relative">
-            <div className="relative w-full max-w-md">
-              {/* Main card */}
-              <div className="card-glass rounded-3xl p-8 shadow-hover animate-float">
-                <div className="gradient-primary rounded-2xl p-6 mb-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-3 h-3 bg-white/40 rounded-full" />
-                    <div className="w-3 h-3 bg-white/40 rounded-full" />
-                    <div className="w-3 h-3 bg-white/40 rounded-full" />
-                  </div>
-                  <div className="space-y-2">
-                    <div className="h-2 bg-white/30 rounded-full w-3/4" />
-                    <div className="h-2 bg-white/20 rounded-full w-full" />
-                    <div className="h-2 bg-white/20 rounded-full w-2/3" />
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  {["Web Development", "Digital Marketing", "Cloud & DevOps"].map((item, i) => (
-                    <div key={item} className="flex items-center gap-3">
-                      <div
-                        className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold"
-                        style={{
-                          background: i === 0 ? "hsl(var(--primary))" : i === 1 ? "hsl(var(--secondary))" : "hsl(var(--accent))",
-                        }}
-                      >
-                        ✓
-                      </div>
-                      <span className="text-sm font-medium text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
+            <div className="relative w-full max-w-lg">
+              <img
+                src={heroHome}
+                alt="Ishna Webtech team working on digital solutions"
+                className="rounded-3xl shadow-hover object-cover w-full h-[480px]"
+              />
               {/* Floating mini cards */}
               <div className="absolute -top-6 -right-8 card-glass rounded-2xl p-4 shadow-card animate-float" style={{ animationDelay: "1.5s" }}>
                 <div className="text-2xl font-bold gradient-text-primary">98%</div>
