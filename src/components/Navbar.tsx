@@ -29,9 +29,9 @@ interface MegaMenuProps {
 }
 
 const MegaMenu = ({ items, title, onClose }: MegaMenuProps) => (
-  <div className="mega-menu w-80">
+  <div className="mega-menu w-[480px]">
     <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">{title}</p>
-    <div className="space-y-1">
+    <div className="grid grid-cols-2 gap-1">
       {items.map((item) => (
         <Link
           key={item.href}
@@ -133,9 +133,6 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:7217676271" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-              📞 7217676271
-            </a>
             <Link to="/contact" className="btn-primary text-sm">
               Get Free Consultation
             </Link>
