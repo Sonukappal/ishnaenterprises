@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import HeroSection from "@/components/home/HeroSection";
 import AboutUsSection from "@/components/home/AboutUsSection";
 import ServicesSection from "@/components/home/ServicesSection";
@@ -21,13 +22,13 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <ServicesSection />
-        <AboutUsSection />
-        <WhyChooseUs />
-        <DevOpsSection />
-        <DigitalMarketingSection />
-        <TestimonialsSection />
-        <CTASection />
+        <ScrollReveal><ServicesSection /></ScrollReveal>
+        <ScrollReveal delay={100}><AboutUsSection /></ScrollReveal>
+        <ScrollReveal delay={100}><WhyChooseUs /></ScrollReveal>
+        <ScrollReveal delay={100}><DevOpsSection /></ScrollReveal>
+        <ScrollReveal delay={100}><DigitalMarketingSection /></ScrollReveal>
+        <ScrollReveal delay={100}><TestimonialsSection /></ScrollReveal>
+        <ScrollReveal delay={100}><CTASection /></ScrollReveal>
       </main>
       <Footer />
     </>
