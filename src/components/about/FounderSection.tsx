@@ -1,5 +1,5 @@
 import { Quote } from "lucide-react";
-import founderPhoto from "@/assets/founder-photo.jpg";
+import founderPhoto from "@/assets/founder-photo.webp";
 
 export default function FounderSection() {
   return (
@@ -14,29 +14,37 @@ export default function FounderSection() {
 
         <div className="max-w-5xl mx-auto">
           <div className="bg-background rounded-3xl border border-border overflow-hidden">
-            <div className="grid md:grid-cols-[280px_1fr] gap-0">
+            <div className="grid md:grid-cols-[300px_1fr] gap-0">
               {/* Photo */}
-              <div className="relative">
+              <div className="relative bg-white flex items-center justify-center p-6">
                 <img
                   src={founderPhoto}
-                  alt="Founder of Ishna Webtech Solutions"
-                  className="w-full h-full object-cover min-h-[300px]"
+                  alt="Anil Kappal - Founder of Ishna Webtech Solutions"
+                  className="w-full max-w-[260px] h-auto object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent md:bg-gradient-to-r md:from-transparent md:to-transparent" />
               </div>
 
               {/* Content */}
               <div className="p-8 md:p-10 flex flex-col justify-center">
                 <Quote className="w-10 h-10 text-primary/20 mb-4" />
-                <blockquote className="text-lg text-muted-foreground leading-relaxed mb-6 italic">
-                  "When I started Ishna Webtech Solutions, my vision was simple — to build a company where technology truly serves businesses, not the other way around. Every project we take on is a partnership. We don't just deliver code or campaigns; we invest in understanding your business deeply and crafting solutions that create real, measurable impact. Our team's passion for innovation combined with a commitment to transparency and quality is what sets us apart. I'm proud that 95% of our clients come back for more — it tells me we're doing something right."
+                <p className="text-base text-primary font-semibold mb-4 italic">
+                  "We're not just building websites and applications — we're building experiences that leave a lasting impact."
+                </p>
+                <blockquote className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  At Ishna Webtech Solutions, our goal has always been to help businesses grow through smart, innovative, and result-driven digital solutions. With over 20+ years of experience in the IT and digital industry, I have witnessed how technology transforms businesses and creates endless opportunities. As a Certified Google Analytics professional, I strongly believe in data-driven strategies that deliver measurable results.
                 </blockquote>
+                <blockquote className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  Our focus is not just on building websites or applications, but on creating digital platforms that add real value to our clients. We work with passion, transparency, and dedication to ensure every project we deliver becomes a success story. Ishna Webtech Solutions was founded with a vision to empower businesses with the right blend of Web Designing, Digital Marketing, and Mobile App Development services, and we continue to move forward with the same commitment and enthusiasm.
+                </blockquote>
+                <blockquote className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  With experience in managing large-scale operations, he has also overseen infrastructure and technology setups for 600+ seats, demonstrating strong leadership, technical expertise, and project management capabilities.
+                </blockquote>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                  His mission is to empower businesses with smart digital solutions that drive growth, efficiency, and long-term success. Under his leadership, Ishna Webtech Solutions continues to deliver high-quality, result-oriented services to clients worldwide.
+                </p>
                 <div>
-                  <div className="font-bold text-lg text-foreground">Ishna Gupta</div>
+                  <div className="font-bold text-lg text-foreground">Anil Kappal</div>
                   <div className="text-sm text-primary font-medium">Founder & CEO, Ishna Webtech Solutions</div>
-                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
-                    With over 5 years of experience in web development and digital strategy, Ishna leads the company's vision of making world-class digital solutions accessible to businesses across India. A technologist at heart, he believes in the power of clean code, honest communication, and long-term partnerships.
-                  </p>
                 </div>
               </div>
             </div>
