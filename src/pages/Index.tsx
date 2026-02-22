@@ -6,6 +6,7 @@ import HeroSection from "@/components/home/HeroSection";
 import AboutUsSection from "@/components/home/AboutUsSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
+import MobileAppSection from "@/components/home/MobileAppSection";
 import DevOpsSection from "@/components/home/DevOpsSection";
 import DigitalMarketingSection from "@/components/home/DigitalMarketingSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
@@ -25,6 +26,7 @@ const Index = () => {
         <ScrollReveal><ServicesSection /></ScrollReveal>
         <ScrollReveal delay={100}><AboutUsSection /></ScrollReveal>
         <ScrollReveal delay={100}><WhyChooseUs /></ScrollReveal>
+        <ScrollReveal delay={100}><MobileAppSection /></ScrollReveal>
         <ScrollReveal delay={100}><DevOpsSection /></ScrollReveal>
         <ScrollReveal delay={100}><DigitalMarketingSection /></ScrollReveal>
         <ScrollReveal delay={100}><TestimonialsSection /></ScrollReveal>
