@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Code2, Palette, AppWindow, Database, ShoppingCart, BarChart3, Search, Share2, MousePointerClick, PenTool, Cloud, Server } from "lucide-react";
+import { Menu, X, ChevronDown, Code2, Palette, AppWindow, Database, ShoppingCart, Smartphone, BarChart3, Search, Share2, MousePointerClick, PenTool, Cloud, Server } from "lucide-react";
 import logo from "@/assets/logo-black.png";
 
 const serviceItems = [
@@ -8,7 +8,8 @@ const serviceItems = [
 { icon: Palette, label: "Web Designing", href: "/services/web-designing", desc: "Beautiful UI/UX design" },
 { icon: AppWindow, label: "Custom Web Applications", href: "/services/custom-web-apps", desc: "Tailored business solutions" },
 { icon: Database, label: "CMS Development", href: "/services/cms-development", desc: "WordPress, Drupal & more" },
-{ icon: ShoppingCart, label: "eCommerce Solutions", href: "/services/ecommerce", desc: "Online stores that sell" }];
+{ icon: ShoppingCart, label: "eCommerce Solutions", href: "/services/ecommerce", desc: "Online stores that sell" },
+{ icon: Smartphone, label: "Mobile Development", href: "/services/mobile-development", desc: "iOS & Android apps" }];
 
 
 const marketingItems = [

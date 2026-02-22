@@ -14,6 +14,7 @@ const serviceLinks = [
   { label: "Web Designing", href: "/services/web-designing" },
   { label: "eCommerce Solutions", href: "/services/ecommerce" },
   { label: "CMS Development", href: "/services/cms-development" },
+  { label: "Mobile Development", href: "/services/mobile-development" },
   { label: "SEO Services", href: "/digital-marketing/seo" },
   { label: "Azure Services", href: "/devops/azure" },
 ];
