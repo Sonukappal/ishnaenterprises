@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Code2, Palette, AppWindow, Database, ShoppingCart, BarChart3, Smartphone, ArrowRight } from "lucide-react";
+import { Code2, Palette, AppWindow, Database, ShoppingCart, BarChart3, ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -41,14 +41,6 @@ const services = [
     href: "/services/ecommerce",
     color: "hsl(var(--primary))",
     bg: "hsl(var(--primary) / 0.08)",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile Development",
-    desc: "Native and cross-platform mobile apps for iOS and Android that users love.",
-    href: "/services/mobile-development",
-    color: "hsl(262 83% 58%)",
-    bg: "hsl(262 83% 58% / 0.08)",
   },
   {
     icon: BarChart3,
