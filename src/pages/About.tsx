@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/home/CTASection";
+import FounderSection from "@/components/about/FounderSection";
 import { Target, Eye, Users, CheckCircle, Lightbulb, Code, Rocket, Headphones, Award, Star, ThumbsUp, Shield, Zap, Clock } from "lucide-react";
 import heroAbout from "@/assets/hero-about.jpg";
 
@@ -225,6 +226,7 @@ export default function About() {
           </div>
         </section>
 
+        <FounderSection />
         <CTASection />
       </main>
       <Footer />

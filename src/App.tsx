@@ -17,6 +17,7 @@ import WebDesigning from "./pages/services/WebDesigning";
 import Ecommerce from "./pages/services/Ecommerce";
 import CMSDevelopment from "./pages/services/CMSDevelopment";
 import CustomWebApps from "./pages/services/CustomWebApps";
+import MobileDevelopment from "./pages/services/MobileDevelopment";
 
 // Digital Marketing
 import SEO from "./pages/digital-marketing/SEO";
@@ -50,6 +51,7 @@ const App = () => (
             <Route path="/services/ecommerce" element={<Ecommerce />} />
             <Route path="/services/cms-development" element={<CMSDevelopment />} />
             <Route path="/services/custom-web-apps" element={<CustomWebApps />} />
+            <Route path="/services/mobile-development" element={<MobileDevelopment />} />
 
             {/* Digital Marketing */}
             <Route path="/digital-marketing/seo" element={<SEO />} />
