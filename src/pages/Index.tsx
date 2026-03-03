@@ -10,6 +10,7 @@ import MobileAppSection from "@/components/home/MobileAppSection";
 import DevOpsSection from "@/components/home/DevOpsSection";
 import DigitalMarketingSection from "@/components/home/DigitalMarketingSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import ChirpyAISection from "@/components/home/ChirpyAISection";
 import CTASection from "@/components/home/CTASection";
 
 const Index = () => {
@@ -30,6 +31,7 @@ const Index = () => {
         <ScrollReveal delay={100}><DevOpsSection /></ScrollReveal>
         <ScrollReveal delay={100}><DigitalMarketingSection /></ScrollReveal>
         <ScrollReveal delay={100}><TestimonialsSection /></ScrollReveal>
+        <ScrollReveal delay={100}><ChirpyAISection /></ScrollReveal>
         <ScrollReveal delay={100}><CTASection /></ScrollReveal>
       </main>
       <Footer />
