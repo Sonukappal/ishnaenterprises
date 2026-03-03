@@ -1,7 +1,8 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Users, Shield, Zap, Award, ThumbsUp, Star } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Users, Shield, Zap, Award, ThumbsUp, Star, Loader2 } from "lucide-react";
 import heroContact from "@/assets/hero-contact.jpg";
 
 const whyContactUs = [
@@ -15,11 +16,26 @@ const whyContactUs = [
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    try {
+      await emailjs.send("service_4h2avd7", "template_k3d6qid", {
+        from_name: form.name,
+        from_email: form.email,
+        phone: form.phone,
+        message: form.message,
+      }, "VKNDGKDA_nVKpGD0G");
+      setSubmitted(true);
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -192,9 +208,9 @@ export default function Contact() {
                       />
                     </div>
 
-                    <button type="submit" className="btn-primary w-full justify-center text-base py-4">
-                      <Send className="w-5 h-5" />
-                      Send Message
+                    <button type="submit" disabled={sending} className="btn-primary w-full justify-center text-base py-4 disabled:opacity-60">
+                      {sending ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
+                      {sending ? "Sending..." : "Send Message"}
                     </button>
                   </form>
                 )}
