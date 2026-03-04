@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Code2, Palette, AppWindow, Database, ShoppingCart, Smartphone, BarChart3, Search, Share2, MousePointerClick, PenTool, Cloud, Server } from "lucide-react";
+import { Menu, X, ChevronDown, Code2, Palette, AppWindow, Database, ShoppingCart, Smartphone, BarChart3, Search, Share2, MousePointerClick, PenTool, Cloud, Server, Bot, GraduationCap, Package } from "lucide-react";
 import logo from "@/assets/logo-black.png";
 
 const serviceItems = [
@@ -23,9 +23,13 @@ const devopsItems = [
 { icon: Cloud, label: "Azure Services", href: "/devops/azure", desc: "Microsoft Azure cloud solutions" },
 { icon: Server, label: "AWS Services", href: "/devops/aws", desc: "Amazon Web Services setup" }];
 
+const productItems = [
+{ icon: Bot, label: "Chirpy AI", href: "https://chirpyai.in", desc: "AI chatbot trained on your docs", external: true },
+{ icon: GraduationCap, label: "Easy Tutor", href: "https://easytutor.co.in", desc: "Smart tutoring platform", external: true }];
+
 
 interface MegaMenuProps {
-  items: {icon: React.ElementType;label: string;href: string;desc: string;}[];
+  items: {icon: React.ElementType;label: string;href: string;desc: string;external?: boolean;}[];
   title: string;
   onClose: () => void;
 }
@@ -34,13 +38,9 @@ const MegaMenu = ({ items, title, onClose }: MegaMenuProps) =>
 <div className="mega-menu w-[480px]">
     <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">{title}</p>
     <div className="grid grid-cols-2 gap-1">
-      {items.map((item) =>
-    <Link
-      key={item.href}
-      to={item.href}
-      onClick={onClose}
-      className="flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 transition-colors group">
-
+      {items.map((item) => {
+        const className = "flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 transition-colors group";
+        const content = <>
           <div className="w-9 h-9 rounded-lg gradient-primary flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
             <item.icon className="w-4 h-4 text-white" />
           </div>
@@ -48,11 +48,19 @@ const MegaMenu = ({ items, title, onClose }: MegaMenuProps) =>
             <div className="font-medium text-sm text-foreground group-hover:text-primary transition-colors">{item.label}</div>
             <div className="text-xs text-muted-foreground">{item.desc}</div>
           </div>
-        </Link>
-    )}
+        </>;
+        return item.external ? (
+          <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" onClick={onClose} className={className}>
+            {content}
+          </a>
+        ) : (
+          <Link key={item.href} to={item.href} onClick={onClose} className={className}>
+            {content}
+          </Link>
+        );
+      })}
     </div>
   </div>;
-
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -77,6 +85,7 @@ export default function Navbar() {
   { label: "Services", menu: "services" },
   { label: "Digital Marketing", menu: "marketing" },
   { label: "DevOps", menu: "devops" },
+  { label: "Products", menu: "products" },
   { label: "Contact", href: "/contact" }];
 
 
@@ -121,6 +130,7 @@ export default function Navbar() {
                     {link.menu === "services" && <MegaMenu items={serviceItems} title="Our Services" onClose={() => setActiveMenu(null)} />}
                     {link.menu === "marketing" && <MegaMenu items={marketingItems} title="Digital Marketing" onClose={() => setActiveMenu(null)} />}
                     {link.menu === "devops" && <MegaMenu items={devopsItems} title="DevOps & Cloud" onClose={() => setActiveMenu(null)} />}
+                    {link.menu === "products" && <MegaMenu items={productItems} title="Our Products" onClose={() => setActiveMenu(null)} />}
                   </div>
               }
               </div>
@@ -182,6 +192,11 @@ export default function Navbar() {
                 <Link key={item.href} to={item.href} onClick={() => setIsOpen(false)} className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary rounded-lg hover:bg-primary/5">
                             {item.label}
                           </Link>
+                )}
+                        {link.menu === "products" && productItems.map((item) =>
+                <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary rounded-lg hover:bg-primary/5">
+                            {item.label}
+                          </a>
                 )}
                       </div>
               }
