@@ -151,6 +151,29 @@
     animation: fadeDown 0.2s ease-out;
   }
 
+  .mega-menu-enhanced {
+    @apply absolute top-full left-1/2 -translate-x-1/2 rounded-2xl overflow-hidden;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(20px);
+    box-shadow:
+      0 25px 65px -12px rgba(0, 0, 0, 0.12),
+      0 8px 20px -8px rgba(0, 0, 0, 0.08),
+      0 0 0 1px hsl(214 32% 91%);
+    min-width: 520px;
+    animation: megaMenuIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes megaMenuIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-6px) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+  }
+
   .stat-counter {
     @apply text-4xl font-bold;
     background: var(--gradient-primary);

@@ -1,67 +1,92 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Code2, Palette, AppWindow, Database, ShoppingCart, Smartphone, BarChart3, Search, Share2, MousePointerClick, PenTool, Cloud, Server, Bot, GraduationCap, Package } from "lucide-react";
+import { Menu, X, ChevronDown, Code2, Palette, AppWindow, Database, ShoppingCart, Smartphone, Search, Share2, MousePointerClick, PenTool, Cloud, Server, Bot, GraduationCap, ExternalLink, ArrowRight } from "lucide-react";
 import logo from "@/assets/logo-black.png";
 
 const serviceItems = [
-{ icon: Code2, label: "Web Development", href: "/services/web-development", desc: "Custom websites & web apps" },
-{ icon: Palette, label: "Web Designing", href: "/services/web-designing", desc: "Beautiful UI/UX design" },
-{ icon: AppWindow, label: "Custom Web Applications", href: "/services/custom-web-apps", desc: "Tailored business solutions" },
-{ icon: Database, label: "CMS Development", href: "/services/cms-development", desc: "WordPress, Drupal & more" },
-{ icon: ShoppingCart, label: "eCommerce Solutions", href: "/services/ecommerce", desc: "Online stores that sell" },
-{ icon: Smartphone, label: "Mobile Development", href: "/services/mobile-development", desc: "iOS & Android apps" }];
+{ icon: Code2, label: "Web Development", href: "/services/web-development", desc: "Custom websites & web apps", color: "from-blue-500 to-blue-600" },
+{ icon: Palette, label: "Web Designing", href: "/services/web-designing", desc: "Beautiful UI/UX design", color: "from-purple-500 to-pink-500" },
+{ icon: AppWindow, label: "Custom Web Applications", href: "/services/custom-web-apps", desc: "Tailored business solutions", color: "from-indigo-500 to-blue-500" },
+{ icon: Database, label: "CMS Development", href: "/services/cms-development", desc: "WordPress, Drupal & more", color: "from-teal-500 to-emerald-500" },
+{ icon: ShoppingCart, label: "eCommerce Solutions", href: "/services/ecommerce", desc: "Online stores that sell", color: "from-orange-500 to-amber-500" },
+{ icon: Smartphone, label: "Mobile Development", href: "/services/mobile-development", desc: "iOS & Android apps", color: "from-cyan-500 to-blue-500" }];
 
 
 const marketingItems = [
-{ icon: Search, label: "SEO", href: "/digital-marketing/seo", desc: "Rank higher on Google" },
-{ icon: Share2, label: "Social Media Marketing", href: "/digital-marketing/smm", desc: "Grow your social presence" },
-{ icon: MousePointerClick, label: "PPC Campaigns", href: "/digital-marketing/ppc", desc: "Pay-per-click advertising" },
-{ icon: PenTool, label: "Content Writing", href: "/digital-marketing/content", desc: "Compelling content that converts" }];
+{ icon: Search, label: "SEO", href: "/digital-marketing/seo", desc: "Rank higher on Google", color: "from-green-500 to-emerald-500" },
+{ icon: Share2, label: "Social Media Marketing", href: "/digital-marketing/smm", desc: "Grow your social presence", color: "from-pink-500 to-rose-500" },
+{ icon: MousePointerClick, label: "PPC Campaigns", href: "/digital-marketing/ppc", desc: "Pay-per-click advertising", color: "from-amber-500 to-orange-500" },
+{ icon: PenTool, label: "Content Writing", href: "/digital-marketing/content", desc: "Compelling content that converts", color: "from-violet-500 to-purple-500" }];
 
 
 const devopsItems = [
-{ icon: Cloud, label: "Azure Services", href: "/devops/azure", desc: "Microsoft Azure cloud solutions" },
-{ icon: Server, label: "AWS Services", href: "/devops/aws", desc: "Amazon Web Services setup" }];
+{ icon: Cloud, label: "Azure Services", href: "/devops/azure", desc: "Microsoft Azure cloud solutions", color: "from-sky-500 to-blue-600" },
+{ icon: Server, label: "AWS Services", href: "/devops/aws", desc: "Amazon Web Services setup", color: "from-orange-400 to-amber-500" }];
 
 const productItems = [
-{ icon: Bot, label: "Chirpy AI", href: "https://chirpyai.in", desc: "AI chatbot trained on your docs", external: true },
-{ icon: GraduationCap, label: "Easy Tutor", href: "https://easytutor.co.in", desc: "Smart tutoring platform", external: true }];
+{ icon: Bot, label: "Chirpy AI", href: "https://chirpyai.in", desc: "AI chatbot trained on your docs", external: true, color: "from-violet-500 to-purple-600" },
+{ icon: GraduationCap, label: "Easy Tutor", href: "https://easytutor.co.in", desc: "Smart tutoring platform", external: true, color: "from-emerald-500 to-teal-500" }];
 
+
+interface MegaMenuItem {
+  icon: React.ElementType;
+  label: string;
+  href: string;
+  desc: string;
+  external?: boolean;
+  color?: string;
+}
 
 interface MegaMenuProps {
-  items: {icon: React.ElementType;label: string;href: string;desc: string;external?: boolean;}[];
+  items: MegaMenuItem[];
   title: string;
+  subtitle?: string;
   onClose: () => void;
 }
 
-const MegaMenu = ({ items, title, onClose }: MegaMenuProps) =>
-<div className="mega-menu w-[480px]">
-    <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">{title}</p>
-    <div className="grid grid-cols-2 gap-1">
-      {items.map((item) => {
-        const className = "flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 transition-colors group";
-        const content = <>
-          <div className="w-9 h-9 rounded-lg gradient-primary flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-            <item.icon className="w-4 h-4 text-white" />
-          </div>
-          <div>
-            <div className="font-medium text-sm text-foreground group-hover:text-primary transition-colors">{item.label}</div>
-            <div className="text-xs text-muted-foreground">{item.desc}</div>
-          </div>
-        </>;
-        return item.external ? (
-          <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" onClick={onClose} className={className}>
-            {content}
-          </a>
-        ) : (
-          <Link key={item.href} to={item.href} onClick={onClose} className={className}>
-            {content}
-          </Link>
-        );
-      })}
+const MegaMenu = ({ items, title, subtitle, onClose }: MegaMenuProps) =>
+<div className="mega-menu-enhanced">
+    <div className="px-5 pt-5 pb-3">
+      <div className="flex items-center gap-2 mb-0.5">
+        <div className="w-1.5 h-5 rounded-full gradient-primary" />
+        <p className="text-sm font-bold text-foreground">{title}</p>
+      </div>
+      {subtitle && <p className="text-xs text-muted-foreground ml-3.5">{subtitle}</p>}
     </div>
+    <div className="px-3 pb-4">
+      <div className="grid grid-cols-2 gap-1">
+        {items.map((item) => {
+          const itemClass = "flex items-start gap-3 p-3 rounded-xl hover:bg-muted/80 transition-all duration-200 group cursor-pointer";
+          const content = (
+            <>
+              <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color || "from-primary to-secondary"} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md group-hover:scale-110 transition-all duration-200`}>
+                <item.icon className="w-[18px] h-[18px] text-white" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors truncate">{item.label}</span>
+                  {item.external && <ExternalLink className="w-3 h-3 text-muted-foreground flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />}
+                </div>
+                <p className="text-[11px] text-muted-foreground leading-snug mt-0.5">{item.desc}</p>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/0 group-hover:text-primary group-hover:translate-x-0.5 transition-all mt-1 flex-shrink-0" />
+            </>
+          );
+          return item.external ? (
+            <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" onClick={onClose} className={itemClass}>
+              {content}
+            </a>
+          ) : (
+            <Link key={item.href} to={item.href} onClick={onClose} className={itemClass}>
+              {content}
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+    {/* Bottom accent line */}
+    <div className="h-1 w-full rounded-b-2xl gradient-primary opacity-60" />
   </div>;
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -127,10 +152,10 @@ export default function Navbar() {
               }
                 {link.menu && activeMenu === link.menu &&
               <div onMouseEnter={() => setActiveMenu(link.menu || null)}>
-                    {link.menu === "services" && <MegaMenu items={serviceItems} title="Our Services" onClose={() => setActiveMenu(null)} />}
-                    {link.menu === "marketing" && <MegaMenu items={marketingItems} title="Digital Marketing" onClose={() => setActiveMenu(null)} />}
-                    {link.menu === "devops" && <MegaMenu items={devopsItems} title="DevOps & Cloud" onClose={() => setActiveMenu(null)} />}
-                    {link.menu === "products" && <MegaMenu items={productItems} title="Our Products" onClose={() => setActiveMenu(null)} />}
+                    {link.menu === "services" && <MegaMenu items={serviceItems} title="Our Services" subtitle="Everything you need to build your digital presence" onClose={() => setActiveMenu(null)} />}
+                    {link.menu === "marketing" && <MegaMenu items={marketingItems} title="Digital Marketing" subtitle="Grow your brand and reach more customers" onClose={() => setActiveMenu(null)} />}
+                    {link.menu === "devops" && <MegaMenu items={devopsItems} title="DevOps & Cloud" subtitle="Scale your infrastructure with confidence" onClose={() => setActiveMenu(null)} />}
+                    {link.menu === "products" && <MegaMenu items={productItems} title="Our Products" subtitle="Innovative tools built by our team" onClose={() => setActiveMenu(null)} />}
                   </div>
               }
               </div>
