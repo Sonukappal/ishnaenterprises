@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, Sparkles, Bot, ArrowRight, Zap } from "lucide-react";
+import { X, Sparkles, Bot, ArrowRight, Zap, MessageCircle } from "lucide-react";
 import chirpyAvatar from "@/assets/chirpy-ai-avatar.png";
 
 export default function ChirpyPromoPopup() {
@@ -21,80 +21,98 @@ export default function ChirpyPromoPopup() {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4" onClick={handleClose}>
       {/* Backdrop */}
-      <div className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${closing ? "opacity-0" : "animate-fade-in"}`} />
+      <div className={`absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-300 ${closing ? "opacity-0" : "animate-fade-in"}`} />
 
       {/* Popup */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`relative w-full max-w-md rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 ${closing ? "animate-scale-out" : "animate-scale-in"}`}
+        className={`relative w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 ${closing ? "animate-scale-out" : "animate-scale-in"}`}
       >
-        {/* Gradient top bar */}
-        <div className="h-2 w-full gradient-primary" />
+        {/* Colorful animated top section */}
+        <div className="relative bg-gradient-to-br from-[hsl(var(--primary))] via-[hsl(262,80%,55%)] to-[hsl(180,70%,45%)] px-6 pt-8 pb-14 overflow-hidden">
+          {/* Decorative circles */}
+          <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-sm" />
+          <div className="absolute -bottom-8 -left-8 w-32 h-32 rounded-full bg-white/10 blur-sm" />
+          <div className="absolute top-4 right-16 w-16 h-16 rounded-full bg-white/5" />
 
-        <div className="bg-background p-6 sm:p-8">
-          {/* Close button */}
+          {/* Floating icons */}
+          <Sparkles className="absolute top-5 left-5 w-5 h-5 text-yellow-300/70 animate-pulse" />
+          <MessageCircle className="absolute top-8 right-24 w-4 h-4 text-white/30 animate-pulse" style={{ animationDelay: "0.5s" }} />
+          <Sparkles className="absolute bottom-10 right-8 w-4 h-4 text-yellow-300/50 animate-pulse" style={{ animationDelay: "1s" }} />
+
+          {/* Close */}
           <button
             onClick={handleClose}
-            className="absolute top-5 right-5 w-8 h-8 rounded-full bg-muted/80 hover:bg-muted flex items-center justify-center transition-colors"
+            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
           >
-            <X className="w-4 h-4 text-muted-foreground" />
+            <X className="w-4 h-4 text-white" />
           </button>
 
-          {/* Floating sparkles */}
-          <div className="absolute top-6 left-6">
-            <Sparkles className="w-5 h-5 text-primary/40 animate-pulse" />
-          </div>
-
-          {/* Avatar */}
-          <div className="flex justify-center mb-5">
-            <div className="relative">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/15 to-accent/15 flex items-center justify-center">
-                <img
-                  src={chirpyAvatar}
-                  alt="Chirpy AI"
-                  className="w-20 h-20 object-contain drop-shadow-lg"
-                />
-              </div>
-              <div className="absolute -top-1 -right-1 w-7 h-7 rounded-full gradient-primary flex items-center justify-center shadow-lg">
-                <Bot className="w-3.5 h-3.5 text-white" />
-              </div>
+          {/* Header text */}
+          <div className="relative text-center text-white">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-xs font-semibold tracking-wide mb-3 backdrop-blur-sm">
+              <Bot className="w-3.5 h-3.5" />
+              AI-POWERED CHATBOT
             </div>
-          </div>
-
-          {/* Content */}
-          <div className="text-center space-y-3">
-            <h3 className="text-xl sm:text-2xl font-bold text-foreground leading-tight">
-              Automate Your Chat with<br />
-              <span className="gradient-text-primary">Chirpy AI</span> Chatbot
+            <h3 className="text-2xl sm:text-3xl font-extrabold leading-tight drop-shadow-md">
+              Automate Your Chat<br />with <span className="text-yellow-300">Chirpy AI</span>
             </h3>
+          </div>
+        </div>
 
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">
-              Train your AI chatbot with your own documents and let it handle customer queries 24/7 — instantly and accurately.
+        {/* Avatar overlapping */}
+        <div className="flex justify-center -mt-10 relative z-10">
+          <div className="w-20 h-20 rounded-2xl bg-background shadow-xl border-4 border-background flex items-center justify-center rotate-6 hover:rotate-0 transition-transform duration-300">
+            <img
+              src={chirpyAvatar}
+              alt="Chirpy AI"
+              className="w-16 h-16 object-contain drop-shadow-md"
+            />
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="bg-background px-6 sm:px-8 pb-7 pt-4">
+          <div className="text-center space-y-4">
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-sm mx-auto">
+              Train your own AI chatbot with PDFs & docs. Let it handle customer queries <strong className="text-foreground">24/7</strong> — instantly and accurately.
             </p>
 
-            {/* Free badge */}
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20">
-              <Zap className="w-4 h-4 text-emerald-500" />
-              <span className="text-base font-extrabold tracking-wide bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">
-                🎉 FREE FOR NOW!
-              </span>
-              <Zap className="w-4 h-4 text-emerald-500" />
+            {/* FREE badge - highlighted */}
+            <div className="relative inline-block">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-2xl blur-lg opacity-30 animate-pulse" />
+              <div className="relative flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-cyan-500/10 border-2 border-emerald-400/30">
+                <Zap className="w-5 h-5 text-emerald-500 animate-pulse" />
+                <span className="text-lg sm:text-xl font-black tracking-wide bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 bg-clip-text text-transparent">
+                  🎉 FREE FOR NOW!
+                </span>
+                <Zap className="w-5 h-5 text-emerald-500 animate-pulse" />
+              </div>
+            </div>
+
+            {/* Features mini row */}
+            <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground py-1">
+              <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> No Code</span>
+              <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-primary" /> PDF Training</span>
+              <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-purple-400" /> 24/7 Support</span>
             </div>
 
             {/* CTA */}
-            <div className="pt-2">
-              <a
-                href="https://chirpyai.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center gap-2 text-base px-8 py-3.5 w-full justify-center rounded-xl shadow-lg hover:shadow-xl transition-shadow"
-              >
+            <a
+              href="https://chirpyai.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-2 text-base font-bold px-8 py-4 w-full justify-center rounded-2xl text-white overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--primary))] via-[hsl(262,80%,55%)] to-[hsl(180,70%,45%)] transition-transform" />
+              <span className="absolute inset-0 bg-gradient-to-r from-[hsl(180,70%,45%)] via-[hsl(262,80%,55%)] to-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="relative flex items-center gap-2">
                 Try Chirpy AI Now
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </div>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </a>
 
-            <button onClick={handleClose} className="text-xs text-muted-foreground hover:text-foreground transition-colors pt-1">
+            <button onClick={handleClose} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
               Maybe later
             </button>
           </div>
