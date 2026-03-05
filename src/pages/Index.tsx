@@ -31,9 +31,9 @@ const Index = () => {
         <ScrollReveal delay={100}><MobileAppSection /></ScrollReveal>
         <ScrollReveal delay={100}><DevOpsSection /></ScrollReveal>
         <ScrollReveal delay={100}><DigitalMarketingSection /></ScrollReveal>
-        <ScrollReveal delay={100}><TestimonialsSection /></ScrollReveal>
         <ScrollReveal delay={100}><ChirpyAISection /></ScrollReveal>
         <ScrollReveal delay={100}><EasyTutorSection /></ScrollReveal>
+        <ScrollReveal delay={100}><TestimonialsSection /></ScrollReveal>
         <ScrollReveal delay={100}><CTASection /></ScrollReveal>
       </main>
       <Footer />
