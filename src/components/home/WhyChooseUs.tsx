@@ -79,7 +79,7 @@ function AnimatedCounter({ num, suffix }: {num: number;suffix: string;}) {
   }, [num]);
 
   return (
-    <div ref={ref} className="stat-counter text-primary-foreground">
+    <div ref={ref} className="text-4xl sm:text-5xl font-bold text-white drop-shadow-md">
       {count}{suffix}
     </div>);
 
@@ -125,10 +125,8 @@ export default function WhyChooseUs() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat) =>
             <div key={stat.label} className="text-center">
-                <div className="text-4xl sm:text-5xl font-bold text-white mb-2">
-                  <AnimatedCounter num={stat.num} suffix={stat.suffix} />
-                </div>
-                <div className="text-white/70 text-sm font-medium">{stat.label}</div>
+                <AnimatedCounter num={stat.num} suffix={stat.suffix} />
+                <div className="text-white/80 text-sm font-medium mt-1">{stat.label}</div>
               </div>
             )}
           </div>
